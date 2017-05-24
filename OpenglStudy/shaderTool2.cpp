@@ -1,8 +1,8 @@
 //
-//  shaderTool.cpp
+//  shaderTool2.cpp
 //  OpenglStudy
-//  顶点着色器向片段着色器发送数据
-//  Created by 杨海鹏 on 2017/5/13.
+//
+//  Created by 杨海鹏 on 2017/5/14.
 //  Copyright © 2017年 杨海鹏. All rights reserved.
 //
 
@@ -23,24 +23,25 @@ const GLuint WIDTH = 800,HEIGHT = 600;
 const GLchar* vertexShaderSource = "#version 330 core\n"
 
 "layout (location = 0) in vec3 position; \n"
-"out vec4 vertexColor;\n"
+"layout (location = 1) in vec3 color;"
+"out vec3 ourColor;\n"
 "void main()\n"
 "{\n"
-"gl_Position = vec4(position.x,position.y,position.z,1.0);\n"
-"vertexColor = vec4(0.5f,0.0f,0.0f,1.0f);\n"
+"gl_Position = vec4(position.x,-position.y,position.z,1.0);\n"  //上下颠倒
+"ourColor = color;\n"
 "}\0";
 
-const GLchar* fragmentShaderSource1 = "#version 330 core\n"
-"in vec4 vertexColor;"
-"out vec4 color;\n"
+const GLchar* fragmentShaderSource = "#version 330 core\n"
+"in vec3 ourColor;"
+"out vec4 color;"
 "void main()\n"
 "{\n"
-"color = vertexColor;\n"
+"color = vec4(ourColor,1.0f);\n"
 "}\n\0";
 
 
 int main(){
-
+    
     glfwInit();
     
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
@@ -77,7 +78,7 @@ int main(){
     
     //创建第一个片段着色器
     GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader,1,&fragmentShaderSource1,NULL);
+    glShaderSource(fragmentShader,1,&fragmentShaderSource,NULL);
     glCompileShader(fragmentShader);
     
     glGetShaderiv(fragmentShader,GL_COMPILE_STATUS,&success);
@@ -109,9 +110,9 @@ int main(){
     
     GLfloat vertices[] = {
         
-        -0.5f,-0.5f,0.0f,
-        0.5f,-0.5f,0.0f,
-        0.0f,0.5f,0.0f
+        -0.5f,-0.5f,0.0f,  1.0f,0.0f,0.0f,
+        0.5f,-0.5f,0.0f,   0.0f,1.0f,0.0f,
+        0.0f,0.5f,0.0f,    0.0f,0.0f,1.0f
     };
     
     GLuint VBO,VAO;
@@ -126,14 +127,18 @@ int main(){
     glBufferData(GL_ARRAY_BUFFER,sizeof(vertices),vertices,GL_STATIC_DRAW);
     
     //设置顶点属性指针
-    glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,3 * sizeof(GLfloat),(GLvoid*)0);
+    glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,6 * sizeof(GLfloat),(GLvoid*)0);
     glEnableVertexAttribArray(0);
+    
+    //颜色属性
+    glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,6 * sizeof(GLfloat), (GLvoid *)(3 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(1);
     
     glBindBuffer(GL_ARRAY_BUFFER,0);
     
     //解绑VAO
     glBindVertexArray(0);
-
+    
     
     while(!glfwWindowShouldClose(window)){
         
@@ -142,16 +147,18 @@ int main(){
         glClearColor(0.2f,0.3f,0.3f,1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        //画第一个三角形
+        
         glUseProgram(shaderProgram);
+        
+        //绘制三角形
         glBindVertexArray(VAO);
         
         //第二个参数制定了顶点数组的起始索引，最后一个参数指定我们打算绘制多少个顶点
         glDrawArrays(GL_TRIANGLES,0,3);
         glBindVertexArray(0);
-
+        
         glfwSwapBuffers(window);
-
+        
     }
     
     glDeleteVertexArrays(1,&VAO);
@@ -169,5 +176,4 @@ void key_callback(GLFWwindow* window,int key,int scancode,int action,int mode){
         glfwSetWindowShouldClose(window,GL_TRUE);
         
     }
-}
-*/
+}*/

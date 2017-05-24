@@ -1,13 +1,14 @@
 //
-//  shaderTool.cpp
+//  shaderTool1.cpp
 //  OpenglStudy
-//  顶点着色器向片段着色器发送数据
+// 片段着色器直接接受不了来自cpu的数据
 //  Created by 杨海鹏 on 2017/5/13.
 //  Copyright © 2017年 杨海鹏. All rights reserved.
 //
 
-
-/*#include <iostream>
+/*
+#include <iostream>
+#include <math.h>
 
 #define GLEW_STATIC
 #include <GL/glew.h>
@@ -31,16 +32,16 @@ const GLchar* vertexShaderSource = "#version 330 core\n"
 "}\0";
 
 const GLchar* fragmentShaderSource1 = "#version 330 core\n"
-"in vec4 vertexColor;"
-"out vec4 color;\n"
+"out vec4 color;"
+"uniform vec4 ourColor;\n"
 "void main()\n"
 "{\n"
-"color = vertexColor;\n"
+"color = ourColor;\n"
 "}\n\0";
 
 
 int main(){
-
+    
     glfwInit();
     
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
@@ -133,7 +134,7 @@ int main(){
     
     //解绑VAO
     glBindVertexArray(0);
-
+    
     
     while(!glfwWindowShouldClose(window)){
         
@@ -143,15 +144,23 @@ int main(){
         glClear(GL_COLOR_BUFFER_BIT);
         
         //画第一个三角形
+        
+        GLfloat timeValue = glfwGetTime();
+        GLfloat greenValue = (sin(timeValue) / 2) + 0.5;
+        GLint vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+        
         glUseProgram(shaderProgram);
+        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+        
+        //绘制三角形
         glBindVertexArray(VAO);
         
         //第二个参数制定了顶点数组的起始索引，最后一个参数指定我们打算绘制多少个顶点
         glDrawArrays(GL_TRIANGLES,0,3);
         glBindVertexArray(0);
-
+        
         glfwSwapBuffers(window);
-
+        
     }
     
     glDeleteVertexArrays(1,&VAO);
@@ -169,5 +178,4 @@ void key_callback(GLFWwindow* window,int key,int scancode,int action,int mode){
         glfwSetWindowShouldClose(window,GL_TRUE);
         
     }
-}
-*/
+}*/
