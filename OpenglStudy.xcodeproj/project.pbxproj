@@ -11,6 +11,10 @@
 		981DA9CE1EC6EEDB009776EA /* triangle_test2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 981DA9CC1EC6EEDB009776EA /* triangle_test2.cpp */; };
 		981DA9D01EC6F4EF009776EA /* triangle_test3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 981DA9CF1EC6F4EF009776EA /* triangle_test3.cpp */; };
 		981DA9D21EC6FB02009776EA /* shaderTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 981DA9D11EC6FB02009776EA /* shaderTool.cpp */; };
+		981DA9D41EC700EF009776EA /* shaderTool1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 981DA9D31EC700EF009776EA /* shaderTool1.cpp */; };
+		981DA9D61EC84576009776EA /* shaderTool2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 981DA9D51EC84575009776EA /* shaderTool2.cpp */; };
+		981DA9DD1EC995B1009776EA /* ShaderTool3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 981DA9DC1EC995B1009776EA /* ShaderTool3.cpp */; };
+		9860748F1ED55B2C003C1EEC /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9860748E1ED55B2C003C1EEC /* libSOIL.a */; };
 		98F16FA31EC45A6500B0277B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98F16FA21EC45A6500B0277B /* main.cpp */; };
 		98F16FAB1EC4624200B0277B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F16FAA1EC4624200B0277B /* OpenGL.framework */; };
 		98F16FAD1EC4631400B0277B /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F16FAC1EC4631400B0277B /* libGLEW.2.0.0.dylib */; };
@@ -36,6 +40,13 @@
 		981DA9CC1EC6EEDB009776EA /* triangle_test2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangle_test2.cpp; sourceTree = "<group>"; };
 		981DA9CF1EC6F4EF009776EA /* triangle_test3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangle_test3.cpp; sourceTree = "<group>"; };
 		981DA9D11EC6FB02009776EA /* shaderTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shaderTool.cpp; sourceTree = "<group>"; };
+		981DA9D31EC700EF009776EA /* shaderTool1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shaderTool1.cpp; sourceTree = "<group>"; };
+		981DA9D51EC84575009776EA /* shaderTool2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shaderTool2.cpp; sourceTree = "<group>"; };
+		981DA9DC1EC995B1009776EA /* ShaderTool3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderTool3.cpp; path = OpenglStudy/ShaderTool3.cpp; sourceTree = SOURCE_ROOT; };
+		981DA9DF1EC99E5E009776EA /* shader.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = shader.vs; path = OpenglStudy/shader.vs; sourceTree = SOURCE_ROOT; };
+		981DA9E01EC99E91009776EA /* shader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = shader.frag; path = OpenglStudy/shader.frag; sourceTree = SOURCE_ROOT; };
+		981DA9E21ECA96DB009776EA /* ShaderUtil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShaderUtil.hpp; sourceTree = "<group>"; };
+		9860748E1ED55B2C003C1EEC /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = ../../../../SOIL_lib/lib/libSOIL.a; sourceTree = "<group>"; };
 		98F16F9F1EC45A6500B0277B /* OpenglStudy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenglStudy; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F16FA21EC45A6500B0277B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		98F16FAA1EC4624200B0277B /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -50,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9860748F1ED55B2C003C1EEC /* libSOIL.a in Frameworks */,
 				98F16FAF1EC4635000B0277B /* libglfw.3.2.dylib in Frameworks */,
 				98F16FAD1EC4631400B0277B /* libGLEW.2.0.0.dylib in Frameworks */,
 				98F16FAB1EC4624200B0277B /* OpenGL.framework in Frameworks */,
@@ -79,6 +91,8 @@
 		98F16FA11EC45A6500B0277B /* OpenglStudy */ = {
 			isa = PBXGroup;
 			children = (
+				981DA9DF1EC99E5E009776EA /* shader.vs */,
+				981DA9E01EC99E91009776EA /* shader.frag */,
 				98F16FA21EC45A6500B0277B /* main.cpp */,
 				98F16FB31EC5868B00B0277B /* squre.cpp */,
 				98F16FB61EC5DD2C00B0277B /* triangle.cpp */,
@@ -86,6 +100,10 @@
 				981DA9CC1EC6EEDB009776EA /* triangle_test2.cpp */,
 				981DA9CF1EC6F4EF009776EA /* triangle_test3.cpp */,
 				981DA9D11EC6FB02009776EA /* shaderTool.cpp */,
+				981DA9D31EC700EF009776EA /* shaderTool1.cpp */,
+				981DA9D51EC84575009776EA /* shaderTool2.cpp */,
+				981DA9DC1EC995B1009776EA /* ShaderTool3.cpp */,
+				981DA9E21ECA96DB009776EA /* ShaderUtil.hpp */,
 			);
 			path = OpenglStudy;
 			sourceTree = "<group>";
@@ -93,6 +111,7 @@
 		98F16FA91EC4624200B0277B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9860748E1ED55B2C003C1EEC /* libSOIL.a */,
 				98F16FAE1EC4635000B0277B /* libglfw.3.2.dylib */,
 				98F16FAC1EC4631400B0277B /* libGLEW.2.0.0.dylib */,
 				98F16FAA1EC4624200B0277B /* OpenGL.framework */,
@@ -158,11 +177,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				98F16FA31EC45A6500B0277B /* main.cpp in Sources */,
+				981DA9D61EC84576009776EA /* shaderTool2.cpp in Sources */,
 				981DA9CB1EC6D40E009776EA /* triangle_test1.cpp in Sources */,
 				98F16FB71EC5DD2C00B0277B /* triangle.cpp in Sources */,
 				981DA9D01EC6F4EF009776EA /* triangle_test3.cpp in Sources */,
 				981DA9D21EC6FB02009776EA /* shaderTool.cpp in Sources */,
 				98F16FB51EC5868B00B0277B /* squre.cpp in Sources */,
+				981DA9DD1EC995B1009776EA /* ShaderTool3.cpp in Sources */,
+				981DA9D41EC700EF009776EA /* shaderTool1.cpp in Sources */,
 				981DA9CE1EC6EEDB009776EA /* triangle_test2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,14 +233,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				"HEADER_SEARCH_PATHS[arch=*]" = (
-					"$(glew_header)",
-					"$(glfw_header)",
-				);
-				"LIBRARY_SEARCH_PATHS[arch=*]" = (
-					"$(glew_lib)",
-					"$(glfw_lib)",
-				);
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(soil_header)";
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(soil_lib)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				NEW_SETTING = "";
@@ -262,14 +278,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				"HEADER_SEARCH_PATHS[arch=*]" = (
-					"$(glew_header)",
-					"$(glfw_header)",
-				);
-				"LIBRARY_SEARCH_PATHS[arch=*]" = (
-					"$(glew_lib)",
-					"$(glfw_lib)",
-				);
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(soil_header)";
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(soil_lib)";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				NEW_SETTING = "";
@@ -280,8 +290,13 @@
 		98F16FA71EC45A6500B0277B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(glfw_header)",
+					"$(glew_header)",
+					"$(soil_header)",
+				);
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
+					"$(soil_lib)",
 					/usr/local/Cellar/glew/2.0.0/lib,
 					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
@@ -292,8 +307,13 @@
 		98F16FA81EC45A6500B0277B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(glew_header)",
+					"$(glfw_header)",
+					"$(soil_header)",
+				);
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
+					"$(soil_lib)",
 					/usr/local/Cellar/glew/2.0.0/lib,
 					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
